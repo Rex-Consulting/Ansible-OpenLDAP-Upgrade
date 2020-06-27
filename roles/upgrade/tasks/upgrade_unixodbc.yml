@@ -1,0 +1,20 @@
+- name: Compile UnixODBC
+  environment: "{{ working_env }}"
+  shell: |
+    make distclean
+    ./configure {{ unixodbc_config_args }}
+    make
+    make install
+  args:
+    chdir: "{{ src_dir }}unixODBC-{{ unixodbc_version }}"
+  register: result
+  tags:
+    - install:unixodbc
+
+- name: Print config output
+  debug:
+    msg: "{{ result.stdout_lines }}"
+  tags:
+    - never
+    - debug
+    - debug-install:unixodbc

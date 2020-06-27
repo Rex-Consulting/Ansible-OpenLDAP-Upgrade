@@ -1,0 +1,20 @@
+- name: Upgrade Cyrus SASL
+  environment: "{{ working_env }}"
+  shell: |
+    make distclean
+    ./configure {{ cyrus_sasl_config_args }}
+    make
+    make install
+  args:
+    chdir: "{{ src_dir }}cyrus-sasl-{{ cyrus_sasl_version }}"
+  register: result
+  tags:
+    - upgrade:cyrus_sasl
+
+- name: Print config output
+  debug:
+    msg: "{{ result.stdout_lines }}"
+  tags:
+    - never
+    - debug
+    - debug-upgrade:cyrus_sasl

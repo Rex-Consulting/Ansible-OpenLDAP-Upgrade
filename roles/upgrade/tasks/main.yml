@@ -1,0 +1,16 @@
+---
+- import_tasks: upgrade_unixodbc.yml
+  tags:
+    - upgrade:unixodbc
+
+- import_tasks: upgrade_openssl.yml
+  tags:
+    - upgrade:openssl
+
+- import_tasks: upgrade_openldap.yml
+  tags:
+    - upgrade:openldap
+
+- import_tasks: upgrade_cyrussasl.yml
+  tags:
+    - upgrade:cyrussasl

@@ -1,0 +1,21 @@
+---
+- name: Upgrade OpenSSL
+  environment: "{{ working_env }}"
+  shell: |
+    make clean
+    ./config {{ openssl_config_args }}
+    make
+    make install
+  args:
+    chdir: "{{ src_dir }}openssl-{{ openssl_version }}"
+  register: result
+  tags:
+    - upgrade:openssl
+
+- name: Print config output
+  debug:
+    msg: "{{ result.stdout_lines }}"
+  tags:
+    - never
+    - debug
+    - debug-upgrade:openssl
