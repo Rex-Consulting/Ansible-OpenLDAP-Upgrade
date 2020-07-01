@@ -1,4 +1,8 @@
 ---
+- import_tasks: copy_source.yml
+  tags:
+    - copy:source
+
 - import_tasks: upgrade_unixodbc.yml
   tags:
     - upgrade:unixodbc
@@ -14,3 +18,7 @@
 - import_tasks: upgrade_cyrussasl.yml
   tags:
     - upgrade:cyrussasl
+
+- import_tasks: upgrade_openldap.yml
+  tags:
+    - upgrade:openldap
