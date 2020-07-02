@@ -1,16 +1,12 @@
-- name: Compile OpenLDAP
+- name: Upgrade OpenLDAP 2
   environment: "{{ working_env }}"
   shell: |
-    make distclean
-    ./configure {{ openldap_config_args }}
-    make depend
-    make
-    make install
+    echo "test"
   args:
     chdir: "{{ src_dir }}openldap-{{ openldap_version }}"
   register: result
   tags:
-    - install:openldap
+    - upgrade:openldap:2
 
 - name: Print config output
   debug:
@@ -18,4 +14,10 @@
   tags:
     - never
     - debug
-    - debug-install:openldap
+    - debug-upgrade:openldap:2
+
+#make distclean
+#./configure {{ openldap_config_args }}
+#make depend
+#make
+#make install

@@ -46,7 +46,7 @@ To upgrade all packages:
 
 To upgrade openldap:
 
-    ansible-playbook -i hosts upgrade_openldap.yml -t "copy:source,upgrade:openldap,debug-upgrade:openldap"
+    ansible-playbook -i hosts upgrade_openldap.yml -t "copy:source,upgrade:openldap:1,debug-upgrade:openldap:1"
 
 To upgrade cyrus sasl:
 

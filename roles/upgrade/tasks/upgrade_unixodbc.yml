@@ -1,4 +1,4 @@
-- name: Compile UnixODBC
+- name: Upgrade UnixODBC
   environment: "{{ working_env }}"
   shell: |
     make distclean
@@ -9,7 +9,7 @@
     chdir: "{{ src_dir }}unixODBC-{{ unixodbc_version }}"
   register: result
   tags:
-    - install:unixodbc
+    - upgrade:unixodbc
 
 - name: Print config output
   debug:
@@ -17,4 +17,4 @@
   tags:
     - never
     - debug
-    - debug-install:unixodbc
+    - debug-upgrade:unixodbc

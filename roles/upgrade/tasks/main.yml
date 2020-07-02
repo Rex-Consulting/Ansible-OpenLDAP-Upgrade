@@ -11,14 +11,14 @@
   tags:
     - upgrade:openssl
 
-- import_tasks: upgrade_openldap.yml
+- import_tasks: upgrade_openldap_1.yml
   tags:
-    - upgrade:openldap
+    - upgrade:openldap:1
 
 - import_tasks: upgrade_cyrussasl.yml
   tags:
     - upgrade:cyrussasl
 
-- import_tasks: upgrade_openldap.yml
+- import_tasks: upgrade_openldap_2.yml
   tags:
-    - upgrade:openldap
+    - upgrade:openldap:2
