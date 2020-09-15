@@ -45,3 +45,4 @@
 ## Insert targets for deployment here
 [servers]
 ldap1 ansible_host=ansibletest ansible_user=webadm
+ansible ansible_host=ansible ansible_user=ansible-adm
